@@ -1,13 +1,13 @@
 'use client'
 
-import { useState } from 'react'
+import { Suspense, useState } from 'react'
 import { useSearchParams, useRouter } from 'next/navigation'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Eye, EyeOff, ArrowRight, Leaf } from 'lucide-react'
 import Link from 'next/link'
 import { R } from '@/lib/routes'
 
-export default function AuthPage() {
+function AuthContent() {
   const searchParams = useSearchParams()
   const router = useRouter()
   const [mode, setMode]           = useState<'in' | 'up'>(searchParams.get('m') === 'up' ? 'up' : 'in')
@@ -228,5 +228,13 @@ export default function AuthPage() {
 
       </div>
     </div>
+  )
+}
+
+export default function AuthPage() {
+  return (
+    <Suspense>
+      <AuthContent />
+    </Suspense>
   )
 }

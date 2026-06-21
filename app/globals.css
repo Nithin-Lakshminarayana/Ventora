@@ -1,0 +1,119 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #0F172A;
+  --secondary: #1E293B;
+  --card: #273449;
+  --primary: #8B5CF6;
+  --accent: #7DD3FC;
+  --success: #4ADE80;
+  --muted: #94A3B8;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  background-color: var(--bg);
+  color: white;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-weight: 300;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* Minimal scrollbar */
+::-webkit-scrollbar {
+  width: 3px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(139, 92, 246, 0.3);
+  border-radius: 2px;
+}
+
+/* Glass morphism */
+.glass {
+  background: rgba(39, 52, 73, 0.55);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-light {
+  background: rgba(30, 41, 59, 0.45);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+}
+
+/* Paper texture for letters */
+.paper {
+  background: linear-gradient(135deg, rgba(39, 52, 73, 0.97) 0%, rgba(30, 41, 59, 0.99) 100%);
+  position: relative;
+}
+.paper::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-image: repeating-linear-gradient(
+    0deg,
+    transparent,
+    transparent 31px,
+    rgba(148, 163, 184, 0.06) 31px,
+    rgba(148, 163, 184, 0.06) 32px
+  );
+  pointer-events: none;
+}
+
+/* Textarea reset */
+textarea {
+  resize: none;
+  outline: none;
+  background: transparent;
+  border: none;
+  font-family: inherit;
+  font-weight: 300;
+  line-height: 2;
+  color: white;
+}
+textarea::placeholder {
+  color: rgba(148, 163, 184, 0.35);
+}
+
+input {
+  outline: none;
+  background: transparent;
+}
+
+/* Gradient text */
+.gradient-text {
+  background: linear-gradient(135deg, #8B5CF6 0%, #7DD3FC 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Soft glow layer */
+.aurora-glow {
+  background: radial-gradient(ellipse 80% 40% at 50% 0%, rgba(139, 92, 246, 0.12) 0%, transparent 70%);
+}
+
+/* Ensure canvas never transitions */
+canvas {
+  transition: none !important;
+}
+
+/* Nav safe area */
+.pb-nav {
+  padding-bottom: calc(6rem + env(safe-area-inset-bottom));
+}
